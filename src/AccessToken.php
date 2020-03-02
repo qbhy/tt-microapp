@@ -33,8 +33,15 @@ class AccessToken extends AbstractAccessToken
         ])->getBody(), true);
     }
 
+    /**
+     * @param $result
+     * @return mixed|void
+     * @throws TtMicroAppException
+     */
     public function checkTokenResponse($result)
     {
-
+        if (empty($result['errcode']) || $result['errcode'] !== 0) {
+            throw new TtMicroAppException("获取 access token 失败：{$result['errmsg']}");
+        }
     }
 }
