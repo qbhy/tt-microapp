@@ -1,3 +1,4 @@
 vendor
 /*.php
 composer.lock
+.idea
