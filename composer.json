@@ -1,0 +1,20 @@
+{
+    "name": "96qbhy/tt-microapp",
+    "description": "字节跳动小程序sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "qbhy",
+            "email": "96qbhy@gmail.com"
+        }
+    ],
+    "require": {
+        "hanson/foundation-sdk": "^3.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qbhy\\TtMicroApp\\": "src/"
+        }
+    }
+}

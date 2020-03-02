@@ -1,0 +1,40 @@
+<?php
+
+
+namespace Qbhy\TtMicroApp;
+
+
+use Hanson\Foundation\AbstractAccessToken;
+
+class AccessToken extends AbstractAccessToken
+{
+    protected $tokenJsonKey = 'access_token';
+
+    protected $expiresJsonKey = 'expires_in';
+
+    protected $app;
+
+    public function __construct(TtMicroApp $microApp)
+    {
+        $this->app = $microApp;
+    }
+
+    /**
+     * 从服务端获取 access token
+     * @return mixed|void
+     * @throws \Hanson\Foundation\Exception\HttpException
+     */
+    public function getTokenFromServer()
+    {
+        return json_decode((string)$this->app->http->get('https://developer.toutiao.com/api/apps/token', [
+            'appid' => $this->app->getAppId(),
+            'secret' => $this->app->getAppSecret(),
+            'grant_type' => 'client_credential',
+        ])->getBody(), true);
+    }
+
+    public function checkTokenResponse($result)
+    {
+
+    }
+}
