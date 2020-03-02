@@ -16,5 +16,12 @@
         "psr-4": {
             "Qbhy\\TtMicroApp\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Qbhy\\TtMicroApp\\LaravelServiceProvider"
+            ]
+        }
     }
 }
