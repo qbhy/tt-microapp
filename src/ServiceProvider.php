@@ -24,5 +24,9 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['storage'] = function (TtMicroApp $microApp) {
             return new Storage($microApp);
         };
+
+        $pimple['qr_code'] = function (TtMicroApp $microApp) {
+            return new QrCode($microApp);
+        };
     }
 }
