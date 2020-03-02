@@ -4,6 +4,9 @@ namespace Qbhy\TtMicroApp;
 
 class Auth
 {
+    const CODE = 'code';
+    const ANONYMOUS_CODE = 'anonymous_code';
+
     protected $app;
 
     public function __construct(TtMicroApp $microApp)
@@ -17,10 +20,10 @@ class Auth
      * @return array
      * @throws
      */
-    public function session(string $code, $type = 'code')
+    public function session(string $code, $type = Auth::CODE)
     {
-        if (!in_array($type, ['code','anonymous_code'])) {
-            throw new TtMicroAppException('type 只能是 code或者anonymous_code');
+        if (!in_array($type, $limit = [Auth::ANONYMOUS_CODE, Auth::CODE])) {
+            throw new TtMicroAppException('type 只能是 ' . implode('或者', $limit));
         }
 
         return json_decode((string)$this->app->http->get('https://developer.toutiao.com/api/apps/jscode2session', [

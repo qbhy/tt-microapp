@@ -20,5 +20,9 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['auth'] = function (TtMicroApp $microApp) {
             return new Auth($microApp);
         };
+
+        $pimple['storage'] = function (TtMicroApp $microApp) {
+            return new Storage($microApp);
+        };
     }
 }
