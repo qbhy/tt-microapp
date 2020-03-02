@@ -2,6 +2,10 @@
 
 namespace Qbhy\TtMicroApp;
 
+/**
+ * Class Storage
+ * @package Qbhy\TtMicroApp
+ */
 class Storage
 {
     protected $app;

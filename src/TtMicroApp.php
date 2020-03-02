@@ -10,6 +10,10 @@ use Hanson\Foundation\Foundation;
  *
  * @property-read AccessToken $access_token
  * @property-read HttpClient $http
+ * @property-read Auth $auth
+ * @property-read QrCode $qr_code
+ * @property-read Storage $storage
+ * @property-read TempMsg $temp_msg
  */
 class TtMicroApp extends Foundation
 {

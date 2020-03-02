@@ -2,6 +2,10 @@
 
 namespace Qbhy\TtMicroApp;
 
+/**
+ * Class Auth
+ * @package Qbhy\TtMicroApp
+ */
 class Auth
 {
     const CODE = 'code';
