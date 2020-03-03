@@ -28,6 +28,7 @@ var_dump($app->auth->session('client code')); // 获取 openid
 var_dump($app->temp_msg->send('openid', 'template id', 'form id', [], 'page')); //模板消息
 var_dump($app->storage); // 存储接口
 var_dump($app->qr_code->create()); // 创建二维码接口
+var_dump($app->content_security); // 内容安全接口、图片和文本检测
 ```
 
 https://github.com/qbhy/tt-microapp  
