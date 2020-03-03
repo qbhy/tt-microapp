@@ -15,6 +15,7 @@ use Hanson\Foundation\Foundation;
  * @property-read Storage $storage
  * @property-read TempMsg $temp_msg
  * @property-read ContentSecurity $content_security
+ * @property-read Decrypt $decrypt
  */
 class TtMicroApp extends Foundation
 {

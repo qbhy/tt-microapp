@@ -36,5 +36,9 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['content_security'] = function (TtMicroApp $microApp) {
             return new ContentSecurity($microApp);
         };
+
+        $pimple['decrypt'] = function (TtMicroApp $microApp) {
+            return new Decrypt($microApp);
+        };
     }
 }

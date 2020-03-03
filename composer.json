@@ -11,7 +11,8 @@
     "require": {
         "hanson/foundation-sdk": "^3.0",
         "ext-json": "*",
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "ext-openssl": "*"
     },
     "autoload": {
         "psr-4": {

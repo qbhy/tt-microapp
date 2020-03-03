@@ -29,6 +29,7 @@ var_dump($app->temp_msg->send('openid', 'template id', 'form id', [], 'page')); 
 var_dump($app->storage); // 存储接口
 var_dump($app->qr_code->create()); // 创建二维码接口
 var_dump($app->content_security); // 内容安全接口、图片和文本检测
+var_dump($app->decrypt->decrypt('encrypted data', 'session key', 'iv')); // 敏感数据处理
 ```
 
 https://github.com/qbhy/tt-microapp  
