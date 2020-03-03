@@ -14,6 +14,7 @@ use Hanson\Foundation\Foundation;
  * @property-read QrCode $qr_code
  * @property-read Storage $storage
  * @property-read TempMsg $temp_msg
+ * @property-read ContentSecurity $content_security
  */
 class TtMicroApp extends Foundation
 {

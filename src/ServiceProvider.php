@@ -32,5 +32,9 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['temp_msg'] = function (TtMicroApp $microApp) {
             return new TempMsg($microApp);
         };
+
+        $pimple['content_security'] = function (TtMicroApp $microApp) {
+            return new ContentSecurity($microApp);
+        };
     }
 }
