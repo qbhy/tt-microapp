@@ -1,5 +1,5 @@
 ## tt-microapp
-字节跳动小程序 sdk
+字节跳动小程序 sdk  
 字节跳动服务端API官方文档 [点击前往](https://microapp.bytedance.com/dev/cn/mini-app/develop/server/server-api-introduction)
 
 * API 齐全
