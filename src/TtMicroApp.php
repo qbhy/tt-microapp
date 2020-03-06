@@ -16,6 +16,7 @@ use Hanson\Foundation\Foundation;
  * @property-read TempMsg $temp_msg
  * @property-read ContentSecurity $content_security
  * @property-read Decrypt $decrypt
+ * @property-read Payment $payment
  */
 class TtMicroApp extends Foundation
 {
@@ -31,5 +32,20 @@ class TtMicroApp extends Foundation
     public function getAppSecret()
     {
         return $this->getConfig('secret_key');
+    }
+
+    public function getPaymentAppId()
+    {
+        return $this->getConfig('payment_app_id');
+    }
+
+    public function getPaymentSecret()
+    {
+        return $this->getConfig('payment_secret');
+    }
+
+    public function getPaymentMerchantId()
+    {
+        return $this->getConfig('payment_merchant_id');
     }
 }

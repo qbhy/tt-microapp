@@ -17,7 +17,10 @@
     "autoload": {
         "psr-4": {
             "Qbhy\\TtMicroApp\\": "src/"
-        }
+        },
+        "files": [
+            "src/Support/helper.php"
+        ]
     },
     "extra": {
         "laravel": {

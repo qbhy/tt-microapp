@@ -40,5 +40,9 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['decrypt'] = function (TtMicroApp $microApp) {
             return new Decrypt($microApp);
         };
+
+        $pimple['payment'] = function (TtMicroApp $microApp) {
+            return new Payment($microApp);
+        };
     }
 }
