@@ -10,7 +10,7 @@ class ServiceProvider implements ServiceProviderInterface
     public function register(Container $pimple)
     {
         $pimple['access_token'] = function (TtMicroApp $microApp) {
-            return (new AccessToken($microApp))->setCache($microApp->getConfig('cache'));
+            return (new AccessToken($microApp))->setCache($microApp->cache);
         };
 
         $pimple['http'] = function (TtMicroApp $microApp) {

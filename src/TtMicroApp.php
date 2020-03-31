@@ -2,6 +2,7 @@
 
 namespace Qbhy\TtMicroApp;
 
+use Doctrine\Common\Cache\Cache;
 use Hanson\Foundation\Foundation;
 
 /**
@@ -17,6 +18,7 @@ use Hanson\Foundation\Foundation;
  * @property-read ContentSecurity $content_security
  * @property-read Decrypt $decrypt
  * @property-read Payment $payment
+ * @property-read Cache $cache
  */
 class TtMicroApp extends Foundation
 {
