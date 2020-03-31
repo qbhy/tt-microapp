@@ -17,10 +17,15 @@ $ composer require 96qbhy/tt-microapp
 ```php
 require 'vendor/autoload.php';
 
+$redisCache = new \Doctrine\Common\Cache\RedisCache();
+//$redisCache->setRedis($redis); // 设置你的 redis 实例，可选
+
+
 $app = new \Qbhy\TtMicroApp\TtMicroApp([
     'access_key' => 'your app id',
     'secret_key' => 'your app secret',
     'debug' => true,
+    'cache' => $redisCache, // 可选参数，你也可以用 \Doctrine\Common\Cache\ 下面得其他缓存驱动，比如 sqlite 等
 ]);
 
 var_dump($app->access_token->getToken()); // 获取 access token
