@@ -17,7 +17,7 @@ $ composer require 96qbhy/tt-microapp
 ```php
 require 'vendor/autoload.php';
 
-$redisCache = new \Doctrine\Common\Cache\RedisCache();
+$redisCache = new \Doctrine\Common\Cache\RedisCache();// 更多缓存驱动请移步 https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/caching.html
 //$redisCache->setRedis($redis); // 设置你的 redis 实例，可选
 
 
