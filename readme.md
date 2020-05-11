@@ -38,5 +38,6 @@ var_dump($app->decrypt->decrypt('encrypted data', 'session key', 'iv')); // 敏�
 var_dump($app->payment); // 支付
 ```
 
+php吹水交流群请添加: 873213948  
 https://github.com/qbhy/tt-microapp  
 96qbhy@gmail.com
