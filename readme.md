@@ -8,6 +8,9 @@
 * 支持 `composer` 安装
 * 支持 laravel/lumen 框架
 
+## 相关资源
+* QQ小程序php-sdk https://github.com/qbhy/qq-microapp
+
 ## 安装 - install
 ```bash
 $ composer require 96qbhy/tt-microapp 
