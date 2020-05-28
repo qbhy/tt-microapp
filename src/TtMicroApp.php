@@ -10,7 +10,6 @@ use Hanson\Foundation\Foundation;
  * @package Qbhy\TtMicroApp
  *
  * @property-read AccessToken $access_token
- * @property-read HttpClient $http
  * @property-read Auth $auth
  * @property-read QrCode $qr_code
  * @property-read Storage $storage
@@ -49,5 +48,13 @@ class TtMicroApp extends Foundation
     public function getPaymentMerchantId()
     {
         return $this->getConfig('payment_merchant_id');
+    }
+
+    public function rebind(string $id, $value)
+    {
+        $this->offsetUnset($id);
+        $this->offsetSet($id, $value);
+
+        return $this;
     }
 }

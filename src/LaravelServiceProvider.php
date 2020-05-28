@@ -24,7 +24,7 @@ class LaravelServiceProvider extends BaseServiceProvider
      */
     protected function setupConfig()
     {
-        $source = dirname(__DIR__) . '/config/tt-app.php';
+        $source = dirname(__DIR__).'/config/tt-app.php';
         if ($this->app->runningInConsole()) {
             $this->publishes([$source => base_path('config/tt-app.php')], 'tt-app');
         }
@@ -41,9 +41,14 @@ class LaravelServiceProvider extends BaseServiceProvider
         $this->setupConfig();
 
         $this->app->singleton(TtMicroApp::class, function ($app) {
-            return new TtMicroApp(config('tt-app'));
+            return app(Factory::class)->app();
         });
 
+        $this->app->singleton(Factory::class, function ($app) {
+            return new Factory(config('tt-app'));
+        });
+
+        $this->app->alias(Factory::class, 'tt.factory');
         $this->app->alias(TtMicroApp::class, 'tt.app');
     }
 }

@@ -9,13 +9,16 @@
         }
     ],
     "require": {
-        "hanson/foundation-sdk": "^3.0",
+        "hanson/foundation-sdk": "^3.1",
         "ext-json": "*",
         "php": ">=7.1",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "ext-curl": "*"
     },
     "require-dev": {
-        "96qbhy/alipay": "dev-master"
+        "96qbhy/alipay": "dev-master",
+        "hyperf/guzzle": "^1.1",
+        "hyperf/utils": "^1.1"
     },
     "autoload": {
         "psr-4": {
@@ -30,6 +33,9 @@
             "providers": [
                 "Qbhy\\TtMicroApp\\LaravelServiceProvider"
             ]
+        },
+        "hyperf": {
+            "config": "Qbhy\\TtMicroApp\\ConfigProvider"
         }
     }
 }

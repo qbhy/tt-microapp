@@ -1,11 +1,22 @@
 <?php
 
+
+$client = \Hyperf\Guzzle\ClientFactory::class;
+
 return [
-    'access_key' => 'your app id',
-    'secret_key' => 'your app secret',
     'debug' => true,
 
-    'payment_app_id' => 'your payment app id',
-    'payment_merchant_id' => 'your merchant id',
-    'payment_secret' => 'your payment secret',
+    'default' => env('TT_DEFAULT_APP', 'default'),
+
+    'drivers' => [
+        'default' => [
+            'access_key' => env('TT_APP_ID'),
+            'secret_key' => env('TT_APP_SECRET'),
+            'debug' => true,
+
+            'payment_app_id' => env('TT_PAYMENT_APP_ID'),
+            'payment_merchant_id' => env('TT_PAYMENT_MERCHANT_ID'),
+            'payment_secret' => env('TT_PAYMENT_SECRET'),
+        ]
+    ],
 ];
