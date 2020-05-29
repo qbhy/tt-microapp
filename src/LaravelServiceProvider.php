@@ -2,8 +2,8 @@
 
 namespace Qbhy\TtMicroApp;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Laravel\Lumen\Application as LumenApplication;
+use Illuminate\Support\ServiceProvider;
+use Laravel\Lumen\Application;
 
 /**
  * Class LaravelServiceProvider
@@ -12,7 +12,7 @@ use Laravel\Lumen\Application as LumenApplication;
  *
  * @package Qbhy\BaiduAIP
  */
-class LaravelServiceProvider extends BaseServiceProvider
+class LaravelServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -29,7 +29,7 @@ class LaravelServiceProvider extends BaseServiceProvider
             $this->publishes([$source => base_path('config/tt-app.php')], 'tt-app');
         }
 
-        if ($this->app instanceof LumenApplication) {
+        if ($this->app instanceof Application) {
             $this->app->configure('tt-app');
         }
 
@@ -41,7 +41,7 @@ class LaravelServiceProvider extends BaseServiceProvider
         $this->setupConfig();
 
         $this->app->singleton(TtMicroApp::class, function ($app) {
-            return app(Factory::class)->app();
+            return app(Factory::class)->make();
         });
 
         $this->app->singleton(Factory::class, function ($app) {
