@@ -4,7 +4,7 @@
 $client = \Hyperf\Guzzle\ClientFactory::class;
 
 return [
-    'debug' => true,
+    'debug' => env('TT_DEBUG', true),
 
     'default' => env('TT_DEFAULT_APP', 'default'),
 
@@ -12,7 +12,6 @@ return [
         'default' => [
             'access_key' => env('TT_APP_ID'),
             'secret_key' => env('TT_APP_SECRET'),
-            'debug' => true,
 
             'payment_app_id' => env('TT_PAYMENT_APP_ID'),
             'payment_merchant_id' => env('TT_PAYMENT_MERCHANT_ID'),

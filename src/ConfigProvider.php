@@ -2,10 +2,27 @@
 
 namespace Qbhy\TtMicroApp;
 
+use Hyperf\Contract\ConfigInterface;
+use Hyperf\Di\Container;
+use Hyperf\Utils\ApplicationContext;
+
 class ConfigProvider
 {
     public function __invoke(): array
     {
+        if (ApplicationContext::hasContainer()) {
+            /** @var Container $container */
+            $container = ApplicationContext::getContainer();
+
+            $container->define(Factory::class, function () use ($container) {
+                return new Factory($container->make(ConfigInterface::class)->get('tt-app', []));
+            });
+
+            $container->define(TtMicroApp::class, function () use ($container) {
+                return $container->make(Factory::class)->make();
+            });
+        }
+
         return [
             // 合并到  config/autoload/dependencies.php 文件
             'dependencies' => [],
