@@ -14,11 +14,6 @@ use Laravel\Lumen\Application;
  */
 class LaravelServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-
-    }
-
     /**
      * Setup the config.
      */
