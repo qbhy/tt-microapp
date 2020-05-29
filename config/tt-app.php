@@ -1,8 +1,5 @@
 <?php
 
-
-$client = \Hyperf\Guzzle\ClientFactory::class;
-
 return [
     'debug' => env('TT_DEBUG', true),
 
