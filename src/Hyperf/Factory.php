@@ -21,4 +21,16 @@ class Factory extends BaseFactory
     {
         parent::__construct($config->get('tt-app', []));
     }
+
+    public function make(?string $name = null)
+    {
+        $app = parent::make($name);
+
+        // 协程环境下，支持自定义 guzzle handler
+        if (class_exists('Hyperf\Guzzle\CoroutineHandler')) {
+            $app->rebind('guzzle_handler', 'Hyperf\Guzzle\CoroutineHandler');
+        }
+
+        return $app;
+    }
 }
