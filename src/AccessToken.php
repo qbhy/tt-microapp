@@ -12,13 +12,6 @@ class AccessToken extends AbstractAccessToken
 
     protected $expiresJsonKey = 'expires_in';
 
-    protected $app;
-
-    public function __construct(TtMicroApp $microApp)
-    {
-        $this->app = $microApp;
-    }
-
     /**
      * 从服务端获取 access token
      * @return mixed|void

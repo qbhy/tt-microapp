@@ -18,7 +18,7 @@ class Factory
         $this->config = $config;
     }
 
-    public function make(?string $name = null)
+    public function make(?string $name = null, ?array $config = null)
     {
         $name = $name ?? $this->getDefaultDriver();
 
@@ -26,7 +26,7 @@ class Factory
             throw new TtMicroAppException("Undefined {$name} configuration");
         }
 
-        $config = $this->config['drivers'][$name];
+        $config = $config ?? $this->config['drivers'][$name];
 
         if (!isset($config['debug'])) {
             $config['debug'] = $this->config['debug'] ?? false;
