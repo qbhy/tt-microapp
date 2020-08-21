@@ -2,6 +2,7 @@
 
 namespace Qbhy\TtMicroApp;
 
+use Hanson\Foundation\Http;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -14,7 +15,7 @@ class ServiceProvider implements ServiceProviderInterface
         };
 
         $pimple['http'] = function (TtMicroApp $microApp) {
-            return new HttpClient($microApp);
+            return new Http($microApp);
         };
 
         $pimple['auth'] = function (TtMicroApp $microApp) {
