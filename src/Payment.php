@@ -48,12 +48,12 @@ class Payment
     /**
      * 预下单
      */
-    public function create_order(array $params): array
+    public function createOrder(array $params): array
     {
         $opt = array_merge([
             'app_id' => $this->app->getAppId(),
         ], $params);
-        $opt['sign'] = $this->sign_pay($opt);
+        $opt['sign'] = $this->signPay($opt);
         $result = $this->app->http->json('https://developer.toutiao.com/api/apps/ecpay/v1/create_order', $opt)->getBody();
 
         return @json_decode($result, true) ?: $result;
@@ -62,13 +62,13 @@ class Payment
     /**
      * 订单查询
      */
-    public function query_order(string $out_order_no): array
+    public function queryOrder(string $out_order_no): array
     {
         $opt = [
             'app_id' => $this->app->getAppId(),
             'out_order_no' => $out_order_no,
         ];
-        $opt['sign'] = $this->sign_pay($opt);
+        $opt['sign'] = $this->signPay($opt);
         $result = $this->app->http->json('https://developer.toutiao.com/api/apps/ecpay/v1/query_order', $opt)->getBody();
 
         return @json_decode($result, true) ?: $result;
@@ -77,12 +77,12 @@ class Payment
     /**
      * 退款请求
      */
-    public function create_refund(array $params): array
+    public function createRefund(array $params): array
     {
         $opt = array_merge([
             'app_id' => $this->app->getAppId(),
         ], $params);
-        $opt['sign'] = $this->sign_pay($opt);
+        $opt['sign'] = $this->signPay($opt);
         $result = $this->app->http->json('https://developer.toutiao.com/api/apps/ecpay/v1/create_refund', $opt)->getBody();
 
         return @json_decode($result, true) ?: $result;
@@ -91,13 +91,13 @@ class Payment
     /**
      * 查询退款
      */
-    public function query_refund(string $out_refund_no): array
+    public function queryRefund(string $out_refund_no): array
     {
         $opt = [
             'app_id' => $this->app->getAppId(),
             'out_refund_no' => $out_refund_no,
         ];
-        $opt['sign'] = $this->sign_pay($opt);
+        $opt['sign'] = $this->signPay($opt);
         $result = $this->app->http->json('https://developer.toutiao.com/api/apps/ecpay/v1/query_refund', $opt)->getBody();
 
         return @json_decode($result, true) ?: $result;
@@ -111,7 +111,7 @@ class Payment
         $opt = array_merge([
             'app_id' => $this->app->getAppId(),
         ], $params);
-        $opt['sign'] = $this->sign_pay($opt);
+        $opt['sign'] = $this->signPay($opt);
         $result = $this->app->http->json('https://developer.toutiao.com/api/apps/ecpay/v1/settle', $opt)->getBody();
 
         return @json_decode($result, true) ?: $result;
@@ -120,13 +120,13 @@ class Payment
     /**
      * 查询分账
      */
-    public function query_settle(string $out_settle_no): array
+    public function querySettle(string $out_settle_no): array
     {
         $opt = [
             'app_id' => $this->app->getAppId(),
             'out_settle_no' => $out_settle_no,
         ];
-        $opt['sign'] = $this->sign_pay($opt);
+        $opt['sign'] = $this->signPay($opt);
         $result = $this->app->http->json('https://developer.toutiao.com/api/apps/ecpay/v1/query_settle', $opt)->getBody();
 
         return @json_decode($result, true) ?: $result;
@@ -157,7 +157,7 @@ class Payment
      * 官方文档地址：
      * https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/server/ecpay/appendix#%E8%AF%B7%E6%B1%82%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95
      */
-    public function sign_pay(array $data): string
+    public function signPay(array $data): string
     {
         unset($data['app_id'], $data['thirdparty_id'], $data['sign']);
 
@@ -184,7 +184,7 @@ class Payment
      * 官方文档地址：
      * https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/server/ecpay/appendix#%E5%9B%9E%E8%B0%83%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95
      */
-    public function sign_callback(array $param): bool
+    public function signCallback(array $param): bool
     {
         $data = [
             $param['timestamp'],

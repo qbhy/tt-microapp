@@ -85,8 +85,8 @@ var_dump($app->payment->create_refund([
     'refund_amount' => $your_refund_amount,
     'reason' => $your_reason,
 ])); // 退款
-var_dump($app->payment->sign_pay($pay_param)); // 担保支付的请求签名算法，一般不需要直接调用
-var_dump($app->payment->sign_callback($callback_param)); // 担保支付的回调签名算法，用于在支付回调、退款回调、分账回调进行数据校验的
+var_dump($app->payment->signPay($pay_param)); // 担保支付的请求签名算法，一般不需要直接调用
+var_dump($app->payment->signCallback($callback_param)); // 担保支付的回调签名算法，用于在支付回调、退款回调、分账回调进行数据校验的
 ```
 
 php吹水交流群请添加: 873213948
